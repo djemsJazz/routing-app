@@ -5,19 +5,22 @@ import HomeScreen from '../Screens/HomeScreen';
 import DetailsScreen from '../Screens/DetailsScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import { Button } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 // Configuring screens header like backgroud, title color and position
 const screensOptions = {
-  headerStyle: { backgroundColor: '#333' },
+  headerStyle: { backgroundColor: 'tomato' },
   headerTintColor: '#fff',
   headerTitleStyle: {
     alignSelf: 'center',
   },
   headerRight: () => (
-    <Button
+    <Ionicons
       onPress={() => alert('This is a button!')}
-      title="Info"
+      name="menu"
+      color="#fff"
+      size={45}
     />
   ),
 };
@@ -25,7 +28,7 @@ const screensOptions = {
 const AppRouter = () => (
   <NavigationContainer>
     <Stack.Navigator initialRouteName="home" screenOptions={screensOptions}>
-      <Stack.Screen name="home" component={HomeScreen} options={{ title: "Home Screen" }} />
+      <Stack.Screen name="home" component={HomeScreen} options={{ title: null }} />
       {/* Another way to define route if we wan't to pass prop to component bu it' not recommended */}
       <Stack.Screen name="details" options={{ title: "Details screen" }}>
         {props => <DetailsScreen {...props} data="Somme data from router" />}
