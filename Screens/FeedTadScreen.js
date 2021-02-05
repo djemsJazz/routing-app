@@ -7,7 +7,8 @@ const FeedTadScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
-      <Text style={{ fontSize: 25, justifyContent: 'flex-start' }}>FeedTabScreen</Text>
+      <Text style={{ fontSize: 30, justifyContent: 'flex-start' }}>Home Screen</Text>
+      <Text style={{ fontSize: 20, justifyContent: 'flex-start' }}>FeedTabScreen</Text>
       <View style={{justifyContent: "center", flex: 1}}>
         <Button
           title="Go to Details"

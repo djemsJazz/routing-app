@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FeedTadScreen from './FeedTadScreen';
 import MessagesTadScreen from './MessagesTadScreen';
@@ -15,31 +15,42 @@ const getTabIconName = (routeName, focused) => {
   }
   return iconName
 }
+const HomeScreen = ({ navigation }) => {
 
-const HomeScreen = () => (
-  <Tab.Navigator
-    screenOptions={({ route }) => ({
-      tabBarIcon: ({ focused, color, size }) => {
-        const iconName = getTabIconName(route.name, focused);
-        return <Ionicons name={iconName} size={size} color={color} />;
-      },
-    })}
-    tabBarOptions={{
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-      labelStyle: {
-        fontSize: 13,
-        marginTop: -5
-      },
-      style: {
-        paddingBottom: 2,
-      }
-    }}
-  >
-    <Tab.Screen name="feeds" component={FeedTadScreen} options={{ title: 'Feeds', }} />
-    <Tab.Screen name="messages" component={MessagesTadScreen} options={{ title: 'Messages', tabBarBadge: 5 }} />
-  </Tab.Navigator>
-);
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      console.log('this is the FOCUS event of home screen or when we ENTER/COMME BACK to the screen')
+    });
+    navigation.addListener('blur', () => {
+      console.log('this is the BLUR event of home screen or when we LEAVE the screen')
+    });
+  }, [navigation]);
+
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          const iconName = getTabIconName(route.name, focused);
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+        labelStyle: {
+          fontSize: 13,
+          marginTop: -5
+        },
+        style: {
+          paddingBottom: 2,
+        }
+      }}
+    >
+      <Tab.Screen name="feeds" component={FeedTadScreen} options={{ title: 'Feeds', }} />
+      <Tab.Screen name="messages" component={MessagesTadScreen} options={{ title: 'Messages', tabBarBadge: 5 }} />
+    </Tab.Navigator>
+  );
+}
 
 export default HomeScreen;
 
