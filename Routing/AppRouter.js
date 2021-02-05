@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from '../Screens/HomeScreen';
 import DetailsScreen from '../Screens/DetailsScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
-import { Button } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
@@ -27,6 +27,7 @@ const screensOptions = {
 
 const AppRouter = () => (
   <NavigationContainer>
+    <StatusBar style="light" backgroundColor="#da563d" />
     <Stack.Navigator initialRouteName="home" screenOptions={screensOptions}>
       <Stack.Screen name="home" component={HomeScreen} options={{ title: null }} />
       {/* Another way to define route if we wan't to pass prop to component bu it' not recommended */}
