@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FeedTadScreen from './FeedTadScreen';
 import MessagesTadScreen from './MessagesTadScreen';
 import { Ionicons } from '@expo/vector-icons';
+import { useFocusEffect } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,16 +16,12 @@ const getTabIconName = (routeName, focused) => {
   }
   return iconName
 }
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
 
-  useEffect(() => {
-    navigation.addListener('focus', () => {
-      console.log('this is the FOCUS event of home screen or when we ENTER/COMME BACK to the screen')
-    });
-    navigation.addListener('blur', () => {
-      console.log('this is the BLUR event of home screen or when we LEAVE the screen')
-    });
-  }, [navigation]);
+  useFocusEffect(useCallback(() => {
+    console.log('useFocusEffect Mounted');
+    return () => console.log('useFocusEffect Unmounted');
+  }, []));
 
   return (
     <Tab.Navigator
