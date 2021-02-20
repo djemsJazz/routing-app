@@ -8,7 +8,6 @@ import {StatusBar} from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
-// Configuring screens header like backgroud, title color and position
 const screensOptions = {
   headerStyle: { backgroundColor: 'tomato' },
   headerTintColor: '#fff',
@@ -30,11 +29,9 @@ const AppRouter = () => (
     <StatusBar style="light" backgroundColor="#da563d" />
     <Stack.Navigator initialRouteName="home" screenOptions={screensOptions}>
       <Stack.Screen name="home" component={HomeScreen} options={{ title: null }} />
-      {/* Another way to define route if we wan't to pass prop to component bu it' not recommended */}
       <Stack.Screen name="details" options={{ title: "Details screen" }}>
         {props => <DetailsScreen {...props} data="Somme data from router" />}
       </Stack.Screen>
-      {/* Screen title based on navigation param */}
       <Stack.Screen
         name="profile"
         component={ProfileScreen}
