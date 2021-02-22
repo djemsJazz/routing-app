@@ -1,9 +1,9 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import AppRouter from './Routing/AppRouter';
+import DrawerRouter from './Navigation/DrawerRouter';
 
 export default function App() {
   return (
-    <AppRouter />
+    <DrawerRouter />
   );
 }
