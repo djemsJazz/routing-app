@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const MessagesTadScreen = () => {
+const MessagesTabScreen = () => {
   return (
     <View>
       <Text>MessagesTabScreen</Text>
@@ -9,4 +9,4 @@ const MessagesTadScreen = () => {
   )
 }
 
-export default MessagesTadScreen
+export default MessagesTabScreen

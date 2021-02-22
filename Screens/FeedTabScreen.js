@@ -3,7 +3,7 @@ import { View, Text, Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 
-const FeedTadScreen = () => {
+const FeedTabScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -28,4 +28,4 @@ const FeedTadScreen = () => {
   )
 }
 
-export default FeedTadScreen
+export default FeedTabScreen
